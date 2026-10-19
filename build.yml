@@ -1,0 +1,29 @@
+name: Build Geode mod
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Build Windows Geode package
+        uses: geode-sdk/build-geode-mod@main
+        with:
+          # Uses the current stable Geode SDK/CLI supplied by the official build action.
+          # If you need to pin a particular SDK release, set sdk explicitly here.
+          sdk: latest
+          cli: latest
+      - name: Upload build outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: underground-geode-build-output
+          path: |
+            build/**/*.geode
+            build/**/*.dll
+            build/**/*.log
+          if-no-files-found: warn

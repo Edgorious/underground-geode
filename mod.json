@@ -1,0 +1,20 @@
+{
+  "geode": "v4.0.0",
+  "gd": { "win": "*" },
+  "id": "testing.underground-console",
+  "name": "Underground Test Console",
+  "version": "v1.0.0",
+  "developer": "Local Test Project",
+  "description": "A testing-oriented console prototype for cycling frame/tick display stages.",
+  "tags": ["offline", "utility", "developer", "interface"],
+  "settings": {
+    "cycle-mode": {
+      "name": "Cycle test mode",
+      "description": "Cycles the display-only test stages while playing a level.",
+      "type": "keybind",
+      "default": "F6",
+      "category": "gameplay",
+      "priority": 1
+    }
+  }
+}
